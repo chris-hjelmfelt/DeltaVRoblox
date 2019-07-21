@@ -1,0 +1,193 @@
+-- How things work  (Index)
+---------------------------
+-- First is an Index of Scripts and then an Index of Functionality
+
+
+--------------------------------
+-- Scripts and What They Do   --
+--------------------------------
+
+-- Workspace Scripts  (Module scripts)
+---------------------------------------
+-- CheckAnswer_ModuleScript
+	-- on each type of science/math problem this script checks the players answer 
+	-- shows Guis for correct or wrong and plays sounds
+	-- calls the reward module
+	-- signals FixObject to fix the red bit
+-- EditHouse_ModuleScript
+	-- move object, rotate object, get stuff from storage, 
+	-- put stuff into storage (includes storage button code for new items)
+	-- the close all Guis function
+-- GetInput_ModuleScript
+	-- no longer used
+-- ManualLabor_ModuleScript
+	-- picking and selling fruit, handling fruit related guis
+-- Mission_ModuleScript
+	-- handling mission gui
+-- CustomizeHouse_ModuleScript
+	-- turns interior customize buttons on or off
+	-- exterior house customization handling (CustomizeHouseLocal handles the Guis))
+-- NewProblems_ModuleScript
+	-- displaying random problems on science/math Guis
+	-- closing books, mission, and fixobject Guis
+-- Rewards_ModuleScript
+	-- displaying rewards for science/math problems, updating gold and skills
+
+
+
+-- ServerScriptService  (Regular Scripts)
+------------------------------------------
+-- AddFurnitureStats
+	-- creates a model that holds the save values for furniture quantities
+	-- clones the model to keep track of furniture placed in house
+-- AddHouseStats
+	-- creates a model that holds the save values for house info 
+-- AddLeaderStats
+	-- creates a model that holds the save values for skills and money
+-- AddStatusStats
+	-- creates a model that holds the save values for new player, quests, developer products, etc
+-- ChangeStats
+	-- change player values for money and skills
+	-- on furniture purchase handle money and keeping track of furniturestats (total counts of each piece of furniture)
+-- CustomizeHouseServer
+	-- changes the lock setting (is this there a second one doing this?) 
+	-- sends colors to CustomizeHouseServer for changing house parts
+-- DayNightCycle
+	-- controls day and night cycle (currently not used)
+-- EditHouse
+	-- changes furniture colors
+	-- spawns furniture from storage
+	-- move and rotate furniture within house
+	-- controls gravity settings on furniture
+-- FurnitureSaveAndSpawn
+	-- gets a list of all furniture in the house and then saves that info using JSON
+	-- gets saved furniture info and then places it into the house
+-- NoPlayerCollisions
+	-- handles collision groups
+-- PlayerAddedMisc
+	-- test gold
+	-- player values for problem answers
+	-- player values for temp housing values (furniture coloring, house int, house ext, ect.)
+	-- max zoom distance 
+	-- relays for client to client remote events
+-- SaveFurnitureData
+	-- saves for quantity of each furniture item owned
+-- SaveHouseData
+	-- saves for house settings (except furniture)
+-- SaveLeaderstatsData
+	-- saves for money and skills 
+-- ChangeStats
+	-- gives rewards of XP and Gold on completion of problems
+	-- handles furniture purchase - money and updating stat values
+-- SpawnAllHouses
+	-- fills the neighborhood with houses (currently turned off)
+-- SpawnPlayerHouse
+	-- creates an array of locations for player housing (the neighborhood layout - both int and ext)
+	-- searches for available locations for interior and exterior models to be placed when a player joins
+	-- clones and places each model and sets up teleport locations and door functionality 
+	-- removes house models when a player leaves
+-- UpgradeHouseServer
+	-- gets info on the current house
+	-- put all furniture into storage
+	-- destoys old models
+	-- clone new models and place at location of old ones
+	-- change teleport locations
+	-- functionality for new doors
+
+
+-- StarterGui  (Local Scripts)
+--------------------------------
+-- FurnitureInStorage
+	-- adds an array of furniture to the storage Gui
+	-- gets a list of furniture in storage and formats it into a JSON string
+-- MoveObject
+	-- find house size, find walls
+	-- handle interior customization Guis
+	-- select items with mouse (right now just furniture)
+	-- call movement functions
+	-- put a furniture item into storage
+-- PurchaseFurniture
+	-- click detectors for furniture store and TestShop block
+	-- handle furniture store Guis  
+	-- when a purchase is made deduct moeny and add item to furniture storage
+-- PlaySounds
+	-- Door Close
+	-- Maire's Radio
+	
+
+
+-- StarterPlayerScripts  (Local Scripts)
+------------------------------------------
+-- CustomizeHouseLocal
+	-- turns exterior customize buttons on or off
+	-- exterior house customization gui handling (CH_MS handles actually changing the house)
+	-- furniture storage button functionality
+	-- get furniture out of storage  (turn on and off "lower frame" which is for selling items - don't yet have code for selling)
+	-- house lock button functionality
+	-- old interior customization code (no longer used)
+-- FixObject
+	-- math object to be fixed 
+	-- create gui with random broken bits
+	-- when a broken bit is clicked it calls NewProblems_ModuleScript to display a problem
+	-- when correct answer signal is received the broken bit is changed to a working bit
+	-- handles DoAnother gui functionality
+-- FixObject2
+	-- same as above but for electrical problems
+-- GetInput
+	-- if user presses enter calls CheckAnswer_ModuleScript
+	-- handles the backspace key
+	-- displays the current answer
+	-- handles Check button functionality for each science/math Gui
+	-- handles number and letter inputs
+-- Load Images
+	-- preloads some images
+-- OpenGui_PartClicked
+	-- handles click detectors for science tables (includes settings to limit player movement, camera, etc)
+	-- handles click detectors for fruit and fruit selling area
+	-- handles click detector for Ling (missions)
+	-- handles teleport Gui buttons
+	-- House Door click detector - uses a ray cast to listen for mouse clicks and if it's a door sends an event for teleporting
+	-- get a fruit bin when clicking on bins
+	-- display arrow over player house
+-- ReadChemistryBook
+	-- handles click detector on book and the gui button to open book (includes settings to limit player movement, camera, etc)
+	-- handles Gui buttons for periodic table and how to instructions
+	-- handles next and previous Gui buttons
+	-- handles contents for each page of the book Guis
+-- ReadElectricalBook
+	-- same as above for electrical book (doesn't have instructions or periodic table)
+-- UpgradeHouseLocal
+	-- handles displaying items on the upgrade house Gui
+	-- handles click detectors to open the housing office Gui & TestUpgrade block
+	-- handles the upgrade buttons and confirm Gui, deducts money and updates houseLevel player value
+	-- handles new click detectors for doors on new house model
+	-- changes the teleport gui button functionality to match upgraded houses
+
+
+-- Other  (Scripts inside Objects)
+-----------------------------------
+-- Lock Gui Script is inside the Button - handles player movement, blur, password, etc
+-- GetSkills Script is inside the SkillsGui - displays each skill in a pop up Gui
+-- GetGold Script is inside the SkillsGui - displays the players Gold on the Gui in the lower left corner
+-- Custom Leaderboard in PlayerListGui 
+
+
+
+----------------------------------------
+-- Where to Find Certain Functionality
+----------------------------------------
+
+-- Skills
+-- Furniture
+	-- Purchasing
+		--
+	-- Storage
+		--
+-- Science
+	-- Input
+		-- 
+	-- Books
+		-- 
+	-- Problems
+		--
+-- Etc

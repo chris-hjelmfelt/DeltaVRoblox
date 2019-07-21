@@ -1,0 +1,6 @@
+To add a place to an existing game:
+-----------------------------------
+In Roblox Studio go to the Game Explorer panel (see View menu)
+Right click on places and "Add New Place"
+Now on the website the new place should show up when you go to "Create"
+and look at Places. It will be listed under the proper game.

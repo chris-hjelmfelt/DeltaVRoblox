@@ -1,0 +1,17 @@
+Troubleshooting
+------------------
+Error:
+PlayerGui is not a member of player  
+Fix:
+It hasn't loaded yet. Use :WaitForChild
+Player:WaitForChild('PlayerGui'):WaitForChild('Customize').PosterChange
+
+Error: 
+Tool.Equipped not working
+Fix: 
+Go in the properties of the tool and deselect "RequiresHandle"
+
+Error:
+Script doesn't run at all (print statement first with all other code commented out)
+Fix:
+localscripts have to inside certain spots: StarterPlayerScripts, StarterGui, etc
